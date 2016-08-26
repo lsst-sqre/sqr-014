@@ -1,0 +1,28 @@
+sudo: false
+language: python
+python:
+      - 3.4
+install: "pip install -r requirements.txt"
+script: "make html"
+notifications:
+      email: false
+
+sudo: false
+language: python
+matrix:
+  include:
+    - python: "3.5"
+      env: LTD_MASON_BUILD=true
+install:
+  - pip install -r requirements.txt
+  - pip install "ltd-mason>=0.2,<0.3"
+script:
+  - sphinx-build -b html -a -n -d _build/doctree . _build/html
+after_success:
+  - ltd-mason-travis --html-dir _build/html
+env:
+  global:
+    - LTD_MASON_BUILD=false  # disable builds in regular text matrix
+    - LTD_MASON_PRODUCT="sqr-014"
+    - secure: "Bgj1gOqBxWRdzLu2hwK2GDa8i2VmYpUh5onfBEgfcpEeHufevejnisLd50HSNOrzeHwM151sX+MBRHeFSPYggfNwoTyCnz/0IGLHEbJ8cTvXCsjyLuFFgwFb5rmHIWivhD0RLc4bMP5AuG9k482GSgvYu1VBEtlpiykRk+w63gPdFvbcODGYHsFNs2C7kzViLMuPu/keswoccEB1iAVa0Ex+hJWHsiy/wfxPX49ChqlMwOMZQnRzBB35XFKCrWrp7FM1eixnCLwEtbDhT2Ag5T89Br+PjQRbrHnfzEwo3/aVufj43WjmKQnNOyTLjFIrwbqzTICYo0Cg0wkw6DU8OLCyweQCDpMkmnodnEPJ9RCaFAUoPeNtgHu3VKsnnXS/5YxM2q0n3fZBXY4iYcVCUzEI1Sw2/0D+ah7xVayAQs+7IrYd6dvAAkyMV2GhDaselJmyCR6TrTTW9VGP1vGXmWOIq37d8EcJffSWBHR0R+pIgZwit6PaB7Qbvy1x0ykKo4XbESpOxA7uoAOcnoZZ8g8zpT+raXY9q/VQ4ciCUNS/1L1XPvBPC6n5ACcN2Gqe/T7CCntNOA9LvHr9JJBT6fT3Aeu4wu0L/9nYe1A29OBSXLhjvKQgmMjrPPwBG+7g/aUPlFlwEmfcfse9ia81p9WPwiEq6OSchnWXbP4uYCw="
+    - secure: "dvPrg4FyFUwVDsg44erGQjJC8pZhF2474JVQeGHh/vZzBNbofhY+01TrbtEBMWnNFaQcz5+7Rnm7fN7q1QaIjie9uPd0OG1xBIU9B32bfyBDXXfMLbN37GNf4v0b7JEOHd/xCy9dFsU7FD+0mGCv4mM+bCf5WPojlM4J7totpwGI5NOo4WP+DNak3OyHLjKg9BeUOSaWf9UJwqw7eUL5tNL/NZm0ajeV1n5zuTy9E9vCEpPQ/wxkA45KBxsKUmh+UEn+dvMsq1AavDUHmQzyGFPRgqu+RlZfHORbuLYy0T3Ve3yxw27h1w7UpfyjTNKoN51EKUQDca/9X2+9RCI7D9K+ZNBoCM5M4/SQKERotGheDmmM21oiBmVqsw63AXFyZj7F5DbECNBoAe2BSk7LWD0HuRzrwH17mgQtN7yLxizPKrk0GQoRQ+oPbggzV8SULsG1KzTdHb65P8pHE9Xac16TNFSFpiFbbAKjRFrIWCZIlkGlORZOWu8+JAJMRL554IpCUVUJ8oS9TCCKGAQ00PbbKHkBLfAstQyg/vd/CiktnEVfS814XFyKBdW+SLgJRYbBpPKPc50owqeCYS8adSBUtFHBrZOAyg3DvEXMxacSB3oDjd0bh9WQhnZm5LTyLVcAXmWgFm85fE9+C8c/ezjBYpdzGU3NfttqOROZlqY="
