@@ -62,7 +62,7 @@ A new environment must be created and should not be shared with a Python 2 stack
 In particular, do not share an EUPS database across both stacks.
 This is because the Python binary interfaces are not compatible between 2 and 3, and also EUPS currently has a bug resulting in database corruption when Python 2 attempts to read a database that was updated with Python 3.
 
-.. note ::
+.. warning ::
     When sourcing the ``lsstsw`` ``setup.sh`` script, check that no EUPS environment variables
     have been defined. EUPS will not overwrite these variables when doing the setup, leading to
     possible confusion (and data corruption) over which EUPS database is active.
