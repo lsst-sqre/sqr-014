@@ -133,7 +133,7 @@ It is probably more likely that the code should be replaced by :class:`str`.
 Remove deprecated calls
 -----------------------
 
-In Python 3 some :class:`unittest` methods have been officially deprecated and should be replaced with modern equivalents. The :meth:`~unittest.TestCase.assert` method should be replaced with :meth:`~unittest.TestCase.assertTrue` and :meth:`~unittest.TestCase.assertEquals` should be replaced with :meth:`~unittest.TestCase.assertEquals`.
+In Python 3 some :class:`unittest` methods have been officially deprecated and should be replaced with modern equivalents. The :meth:`~unittest.TestCase.assert` method should be replaced with :meth:`~unittest.TestCase.assertTrue` and :meth:`~unittest.TestCase.assertEquals` should be replaced with :meth:`~unittest.TestCase.assertEqual`.
 Many of these changes were implemented as part of the `pytest migration <http://dx.doi.org/10.5281/zenodo.60564>`_ (see also `SQR-012 <https://sqr-012.lsst.io>`_) so it is likely that these specific issues will not be encountered.
 
 Futurize
