@@ -14,3 +14,10 @@ with open(metadata_path, 'r') as f:
     confs = configure_sphinx_design_doc(f)
 g = globals()
 g.update(confs)
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3.5', None),
+    'astropy': ('http://docs.astropy.org/en/stable/', None),
+    'numpy': ('http://docs.scipy.org/doc/numpy/', None),
+    'dmdev': ('https://developer.lsst.io/', None),
+}
