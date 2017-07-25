@@ -15,6 +15,9 @@ with open(metadata_path, 'r') as f:
 g = globals()
 g.update(confs)
 
+default_domain = 'py'
+default_role = 'py:obj'
+
 intersphinx_mapping.update({
     'python': ('https://docs.python.org/3.5', None),
     'astropy': ('http://docs.astropy.org/en/stable/', None),
